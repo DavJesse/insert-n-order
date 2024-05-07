@@ -83,7 +83,7 @@
 <p><span style="font-size:11pt;">This program is open-source and available under the MIT License. Feel free to use, modify, and distribute it for any purpose. Contributions and feedback are welcome!</span></p>
 <h2><strong><span style="font-size:17pt;">Author</span></strong></h2>
 <span style="font-size:11pt;">By David Jesse Odhiambo</span></p>
-<p><span style="font-size:11pt;">Apprentice Software Devoloper Zone01Kisumu</span></p>
+<p><span style="font-size:11pt;">Apprentice Software Devoloper Zone01 Kisumu</span></p>
 
 <hr>
 <p><br></p>
