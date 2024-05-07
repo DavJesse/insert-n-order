@@ -1,5 +1,6 @@
 package main
 
+// Split string at the event of the separator
 func stringSplit(str, sep string) []string {
 	var strSlc []string
 
@@ -14,6 +15,7 @@ func stringSplit(str, sep string) []string {
 	return strSlc
 }
 
+// Sort string characters in ASCII order (least to most)
 func stringSort(str string) string {
 	rnd := []rune(str)
 
@@ -28,6 +30,7 @@ func stringSort(str string) string {
 	return result
 }
 
+// Check whether a string contains the specified substring
 func stringContains(str, subStr string) bool {
 	var status bool
 
@@ -41,6 +44,7 @@ func stringContains(str, subStr string) bool {
 	return status
 }
 
+// Check whether a string starts with the specified substring
 func stringPrefix(str, subStr string) bool {
 	var status bool
 

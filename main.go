@@ -6,6 +6,8 @@ import (
 
 func main() {
 	var errSlc []string
+	var inStr, argStr, rsltStr string
+	var signal1, signal2, signal3 int
 	help := []string{
 		"--insert",
 		"  -i",
@@ -17,18 +19,20 @@ func main() {
 
 	formatErr := "Cannot compute error ; wrong format"
 
+	// Capture valid commandline arguments
 	args := os.Args[1:]
+
+	// Exit when user runs the program with no arguments attached
 	if len(args) == 0 {
 		printSlice(help)
 		return
 	}
-	var inStr, argStr, rsltStr string
-	var signal1, signal2, signal3 int
 
+	// Range over arguments, looking for flags
 	for _, arg := range args {
+		// Check for the "-i" and "--insert" flags
 		if stringContains(arg, "-i") {
 			if len(arg) < len("-i") || len(arg) < len("--insert") {
-				Print(arg)
 				errSlc = stringSplit(formatErr, "error ")
 				print(errSlc[0] + "\"" + arg + "\"" + errSlc[1] + "\n")
 				return
@@ -44,6 +48,8 @@ func main() {
 					}
 				}
 			}
+
+			// Check for the "-o" and "--order" flags
 		} else if stringContains(arg, "-o") {
 			if len(arg) < len("-o") || len(arg) < len("--order") {
 				errSlc = stringSplit(formatErr, "error ")
@@ -54,16 +60,22 @@ func main() {
 					signal2 = 5
 				}
 			}
+
+			// Check for the "-h" and "--help" flags
 		} else if stringContains(arg, "-h") {
 			if arg == "-h" || arg == "--help" {
 				printSlice(help)
 				return
 			}
+
+			// Identify the argument strings
 		} else {
 			argStr += arg
 			signal3 = 7
 		}
 	}
+
+	//Execute flags
 	switch signal1 > 0 || signal3 > 0 {
 	case ((signal1+signal3)-7)%3 == 0:
 		rsltStr = argStr + inStr
@@ -81,6 +93,6 @@ func main() {
 	if signal2 > 0 && signal2%5 == 0 {
 		rsltStr = stringSort(rsltStr)
 	}
-
+	// Print result
 	Print(rsltStr)
 }
